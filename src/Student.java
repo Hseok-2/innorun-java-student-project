@@ -25,17 +25,16 @@ public class Student {
     }
 
     // 새 점수로 수정하는 메서드
-    public void updateScore(int score) {
-        this.score = score;
+    public void updateScore(int targetScore) {
+        if(targetScore < 0 || targetScore > 100) {
+            throw new IllegalArgumentException("잘못된 점수 입니다.");
+        }
+        this.score = targetScore;
     }
 
     // 점수에 따라 합격 상태를 돌려주는 메서드
     public PassStatus getPassStatus() {
-        if(this.score < 0 || this.score > 100) {
-            throw new IllegalArgumentException("잘못된 점수 입니다.");
-        }
-
-        return this.score >= 60 ? PassStatus.PASSED : PassStatus.FAILED;
+        return this.score >= 70 ? PassStatus.PASSED : PassStatus.FAILED;
     }
 
     @Override
