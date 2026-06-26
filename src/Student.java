@@ -39,10 +39,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", score=" + score +
-                '}';
+        return "Student [" +
+                "ID = " + id +
+                ", 이름 = " + name + '\'' +
+                ", 점수 = " + score + '\'' +
+                ", " + getPassStatus().getDescription() +
+                ']';
     }
 }
