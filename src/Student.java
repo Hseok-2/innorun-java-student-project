@@ -30,12 +30,12 @@ public class Student {
     }
 
     // 점수에 따라 합격 상태를 돌려주는 메서드
-    public String getPassStatus(int score) {
-        if(score < 0 || score > 100) {
+    public PassStatus getPassStatus() {
+        if(this.score < 0 || this.score > 100) {
             throw new IllegalArgumentException("잘못된 점수 입니다.");
         }
 
-        return score >= 60 ? "합격" : "불합격";
+        return this.score >= 60 ? PassStatus.PASSED : PassStatus.FAILED;
     }
 
     @Override
